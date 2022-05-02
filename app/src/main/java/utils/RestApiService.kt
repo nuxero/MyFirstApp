@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 class RestApiService {
     fun addLog(logData: String, onResult: (LogglyResponse) -> Unit){
         val retrofit = ServiceBuilder.buildService(RestApi::class.java)
-        retrofit.addLog(logData).enqueue(
+        retrofit.addLog("inputs/${Keys.logglyKey()}/tag/http", logData).enqueue(
             object : Callback<LogglyResponse> {
                 override fun onFailure(call: Call<LogglyResponse>, t: Throwable) {
                     onResult(LogglyResponse("nah"))

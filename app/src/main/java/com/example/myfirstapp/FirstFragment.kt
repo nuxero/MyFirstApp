@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.myfirstapp.databinding.FragmentFirstBinding
+import utils.Keys
 import utils.RestApiService
 
 /**
@@ -61,6 +62,7 @@ class FirstFragment : Fragment() {
             apiService.addLog("Count Sensei!!!") {
                 print("Count haha")
             }
+            val logglyKey = Keys.logglyKey()
             countMe(view)
         }
     }
